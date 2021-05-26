@@ -1,0 +1,24 @@
+{
+  "airlines": [
+    {
+      "id": 1,
+      "name": "Avianca"
+    },
+    {
+      "id": 2,
+      "name": "VivaAir"
+    },
+    {
+      "id": 3,
+      "name": "Delta Air Lines"
+    },
+    {
+      "id": 4,
+      "name": "United Airlines"
+    },
+    {
+      "id": 5,
+      "name": "Lufthansa Group"
+    }
+  ]
+}
