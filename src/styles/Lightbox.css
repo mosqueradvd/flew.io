@@ -9,5 +9,5 @@
 
 .alert-hidden {
   opacity: 0;
-  transition: all 250ms linear 50s;
+  transition: all 250ms linear 5s;
 }

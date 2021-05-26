@@ -11,20 +11,20 @@ function FormVanilla({ initialState, validate, favAirline }) {
   const [touched, setTouched] = useState({});
   const [isShowingAlert, setShowingAlert] = useState(false);
 
-  // change event handler
+  // manejador de eventos
   const handleChange = (evt) => {
     const { name, value: newValue, type } = evt.target;
 
-    // keep number fields as numbers
+    // mantener los campos numéricos como números
     const value = type === "number" ? +newValue : newValue;
 
-    // save field values
+    // guardar los valores de los campos
     setValues({
       ...values,
       [name]: value,
     });
 
-    // was the field modified
+    // se modificó el campo
     setTouched({
       ...touched,
       [name]: true,
@@ -33,9 +33,14 @@ function FormVanilla({ initialState, validate, favAirline }) {
 
   const handleBlur = (e) => {
     const { name, value } = e.target;
+
+    // eliminar cualquier error que hubiera antes
     const { [name]: removedError, ...rest } = errors;
+
+    // comprobamos si hay un nuevo error
     const errorName = validate[name](value);
 
+    // validar el campo para ver si el valor ha sido tocado
     setErrors({
       ...rest,
       ...(errorName && { [name]: touched[name] && errorName }),
@@ -45,6 +50,7 @@ function FormVanilla({ initialState, validate, favAirline }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // validaciones del formulario
     const formValidation = Object.keys(values).reduce(
       (acc, key) => {
         const newError = validate[key](values[key]);
@@ -69,10 +75,10 @@ function FormVanilla({ initialState, validate, favAirline }) {
     setTouched(formValidation.touched);
 
     if (
-      !Object.values(formValidation.errors).length &&
+      !Object.values(formValidation.errors).length && //  objeto de errores está vacío
       Object.values(formValidation.touched).length ===
-        Object.values(values).length &&
-      Object.values(formValidation.touched).every((t) => t === true)
+        Object.values(values).length && // todos los campos fueron tocados
+      Object.values(formValidation.touched).every((t) => t === true) // & todo campo tocado es true
     ) {
       // Se muestran en consola, los datos ingresados por el usuario
       console.log("Displaying Data -->", values);
@@ -94,12 +100,17 @@ function FormVanilla({ initialState, validate, favAirline }) {
         favAirline={favAirline}
       />
 
+      {/* // Maneja el estado del lightbox para darle feedback al usuario */}
       <div>
         <div
           className={`relative  ${
             isShowingAlert ? "alert-shown" : "alert-hidden"
           }`}
-          onTransitionEnd={() => setShowingAlert(false)}
+          onTransitionEnd={() => {
+            setTimeout(() => {
+              setShowingAlert(false);
+            }, 5000);
+          }}
         >
           <Lightbox />
         </div>

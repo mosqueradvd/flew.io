@@ -57,7 +57,7 @@ const Form = ({
                 {touched.email && errors.email}
               </div>
               <div>
-                <label htmlFor="first-name" className="sr-only">
+                <label htmlFor="phone" className="sr-only">
                   Teléfono *
                 </label>
                 <input
