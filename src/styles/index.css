@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   box-sizing: border-box;
   margin: 0;
@@ -28,4 +32,14 @@ header > nav > ul {
 }
 
 @media (min-width: 900px) {
+}
+
+.alert-shown {
+  opacity: 1;
+  transition: all 250ms linear;
+}
+
+.alert-hidden {
+  opacity: 0;
+  transition: all 250ms linear 5s;
 }

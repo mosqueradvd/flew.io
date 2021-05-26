@@ -1,0 +1,13 @@
+.alert-shown {
+  opacity: 1;
+  transition: all 250ms linear;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+
+.alert-hidden {
+  opacity: 0;
+  transition: all 250ms linear 50s;
+}
