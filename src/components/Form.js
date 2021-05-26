@@ -35,6 +35,7 @@ const Form = () => {
             name="name"
             value={info.name}
             onChange={handleInfoChange}
+            required
           />
         </label>
         <label htmlFor="email">
@@ -45,6 +46,7 @@ const Form = () => {
             name="email"
             value={info.email}
             onChange={handleInfoChange}
+            required
           />
         </label>
         <label htmlFor="phone">
@@ -55,6 +57,7 @@ const Form = () => {
             name="phone"
             value={info.phone}
             onChange={handleInfoChange}
+            required
           />
         </label>
         <button type="submit">SEND</button>

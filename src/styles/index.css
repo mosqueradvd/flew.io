@@ -4,6 +4,24 @@ body {
   font-family: "Helvetica Neue", sans-serif;
 }
 
+header {
+  display: flex;
+  align-items: center;
+}
+
+header > nav > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+@media (max-width: 920px) {
+  header > nav > ul {
+    flex-direction: column;
+  }
+}
+
 .container {
   display: flex;
   width: 800px;
